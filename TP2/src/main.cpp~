@@ -1,0 +1,25 @@
+#include "liste.hpp"
+
+int main() {
+  int x = 10;
+  int* y;
+  int z;
+  int** w;
+  int* v;
+  
+  y = &x;
+  z = *y;
+  w = &y;
+
+  v = new int;
+  delete v;
+
+  Liste test;
+  test.ajouterDevant(5);
+  test.ajouterDevant(9);
+  test.ajouterDevant(4);
+  test.getTaille();
+  test.getElement(2);
+  
+  return 0;
+}
