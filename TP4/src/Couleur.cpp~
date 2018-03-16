@@ -1,6 +1,0 @@
-#include "Couleur.hpp"
-#include <iostream>
-
-void Couleur::Couleur() const {
-  std::cout << _r << "_" << _g << "_" << _b;
-}

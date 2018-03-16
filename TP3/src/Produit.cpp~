@@ -1,7 +1,0 @@
-#include "Produit.cpp"
-#include <iostream>
-
-Produit(int id, const std::string& description) {
-  _id = id;
-  _description = description;
-}

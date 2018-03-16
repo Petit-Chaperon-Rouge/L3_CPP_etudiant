@@ -1,4 +1,0 @@
-#include "Point.hpp"
-#include "Couleur.hpp"
-#include "FigureGeometrique.hpp"
-#include "Ligne.hpp"
