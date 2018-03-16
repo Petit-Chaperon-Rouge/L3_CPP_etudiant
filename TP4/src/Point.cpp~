@@ -1,0 +1,5 @@
+#include "Point.hpp"
+
+void Point::afficher() const {
+  std::cout << _x << "_" << _y;
+}
