@@ -8,5 +8,6 @@ pkg_check_modules( PKG REQUIRED gtkmm-2.4 cpputest )
 include_directories( ${PKG_INCLUDE_DIRS} )
 
 add_executable( main.out 
-	src/Image.cpp )
+	src/Image.cpp 
+	src/main.cpp )
 target_link_libraries( main.out ${PKG_LIBRARIES} )

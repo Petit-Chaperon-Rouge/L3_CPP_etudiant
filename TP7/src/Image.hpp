@@ -12,6 +12,7 @@ private :
 public :
   Image(int largeur, int hauteur);
   ~Image();
+  Image(const Image& image);
   int getLargeur() const;
   int getHauteur() const;
   /*
@@ -20,9 +21,9 @@ public :
   */
   const int& getPixel(int i, int j) const;
   int& setPixel(int i, int j, int couleur);
-  void remplir(Image& img);
-  void ecrirePnm(const Image& img, const std::string& nomFichier);
-  Image bordure(const Image& img, int couleur, int epaisseur);
+  void remplir();
+  void ecrirePnm(const std::string& nomFichier);
+  void bordure(int couleur, int epaisseur);
 };
 
 #endif
