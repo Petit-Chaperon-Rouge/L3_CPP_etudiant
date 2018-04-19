@@ -26,7 +26,11 @@ Vue(controleur), _kit(argc, argv) {
 	_scrolledWindow.add(_textView);
 	_scrolledWindow.set_policy(Gtk::POLICY_AUTOMATIC, Gtk::POLICY_AUTOMATIC);
 	_box.pack_start(_scrolledWindow);
-
+	
+	_button.set_label("Cliquez ici");
+	_button.signal_clicked().connect(sigc::mem_fun(*this, &VueGraphique::ouvrirFichier));
+	_box.pack_start(_button);
+	
 	_window.add(_box);
 	_window.show_all();
 
@@ -34,7 +38,7 @@ Vue(controleur), _kit(argc, argv) {
 }
 
 void VueGraphique::actualiser() {
-	std::string texte = "bloublou";    // TODO recuperer le vrai texte a afficher
+  std::string texte = _controleur.getTexte();    // TODO recuperer le vrai texte a afficher
 	_textView.get_buffer()->set_text(texte.c_str());
 }
 
@@ -50,6 +54,19 @@ void VueGraphique::ouvrirFichier() {
 	if (ret == Gtk::RESPONSE_OK) {
 		std::string nomFichier = dialog.get_filename();
 		// TODO charger les donnees du fichier dans l'inventaire
+
+		_controleur.chargerInventaire(nomFichier);
 	}
 }
 
+///////////////////////////////////////
+// VueConsole
+///////////////////////////////////////
+
+VueConsole::VueConsole(Controleur& controleur) : Vue(controleur) {
+  actualiser();
+}
+
+void VueConsole::actualiser() {
+  std::cout << _controleur.getTexte();
+}
